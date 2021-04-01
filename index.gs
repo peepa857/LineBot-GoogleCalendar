@@ -49,7 +49,8 @@ function getGoogleCalendar() {
 
 // method for post message to LINE
 function postMessage(message) {
-  var url = 'https://api.line.me/v2/bot/message/push';
+  // var url = 'https://api.line.me/v2/bot/message/push'; // Send broadcast message API (all following users without user_id)
+  var url = 'https://api.line.me/v2/bot/message/broadcast';  // Sends a push message to a user, group, or room API
 
   var headers = {
     'Content-Type': 'application/json; charset=UTF-8',
@@ -58,6 +59,7 @@ function postMessage(message) {
 
   var postData = {
     to: user_id,
+    // to: user_id,
     messages: [
       {
         type: 'text',
